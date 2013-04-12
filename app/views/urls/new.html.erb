@@ -1,0 +1,9 @@
+<!-- TODO: pull this into a partial -->
+<% if flash[:error] %>
+  <%= flash[:error] %>
+<% end %>
+
+<%= form_for(@url) do |f| %>
+  <%= f.text_field :target_url %>
+  <%= f.submit "Create" %>
+<% end %>
