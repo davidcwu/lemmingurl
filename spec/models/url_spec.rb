@@ -3,8 +3,8 @@
 # Table name: urls
 #
 #  id            :integer          not null, primary key
-#  created_at    :datetime
-#  updated_at    :datetime
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #  shortened_url :string(255)
 #  target_url    :string(255)
 #
