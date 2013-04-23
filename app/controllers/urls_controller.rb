@@ -17,7 +17,7 @@ class UrlsController < ApplicationController
 
   def show
     secret_token = params[:id]
-    @url = "0.0.0.0:3000/#{secret_token}"
+    @url = secret_url(:id => secret_token)
   end
 
   # Used for visiting a certain URL using a token.

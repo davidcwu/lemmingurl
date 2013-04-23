@@ -3,7 +3,7 @@ Lemmingurl::Application.routes.draw do
 
   resources :urls
 
-  match ':id' => 'urls#visit'
+  match ':id' => 'urls#visit', :as => :secret
 
   root :to => 'urls#new'
   # The priority is based upon order of creation:
