@@ -2,20 +2,30 @@
 #
 # Table name: urls
 #
-#  id            :integer          not null, primary key
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  shortened_url :string(255)
-#  target_url    :string(255)
+#  id           :integer          not null, primary key
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  target_url   :string(255)      not null
+#  secret_token :string(255)      not null
 #
 
 class Url < ActiveRecord::Base
-  attr_accessible :shortened_url, :target_url
+  attr_accessible :target_url, :secret_token
 
-  validates :shortened_url, :uniqueness => true,
-                            :url => true
+  validates :secret_token, :presence => true,
+                           :uniqueness => true
 
-  validates :target_url, :url => true
+  validates :target_url, :presence => true,
+                         :url => true
 
+  before_validation :create_secret_token
 
+  def to_param
+    secret_token
+  end
+
+  private
+    def create_secret_token
+      self.secret_token = "#{rand(1000)}"
+    end
 end

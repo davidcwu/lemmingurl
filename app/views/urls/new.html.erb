@@ -1,9 +1,18 @@
 <!-- TODO: pull this into a partial -->
 <% if flash[:error] %>
-  <%= flash[:error] %>
+  <div class="error">
+    <%= flash[:error] %>
+  </div>
 <% end %>
 
-<%= form_for(@url) do |f| %>
-  <%= f.text_field :target_url %>
-  <%= f.submit "Create" %>
-<% end %>
+<div class="form">
+  <%= form_for(@url) do |f| %>
+    <div id="search-field">
+      <%= f.text_field :target_url %>
+    </div>
+
+    <button type="submit">
+      <%= f.submit "Create" %>
+    </button>
+  <% end %>
+</div>

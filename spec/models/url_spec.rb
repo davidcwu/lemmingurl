@@ -2,11 +2,11 @@
 #
 # Table name: urls
 #
-#  id            :integer          not null, primary key
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  shortened_url :string(255)
-#  target_url    :string(255)
+#  id           :integer          not null, primary key
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  target_url   :string(255)      not null
+#  secret_token :string(255)      not null
 #
 
 require 'spec_helper'
@@ -14,30 +14,18 @@ require 'spec_helper'
 describe Url do
   before(:each) do
     @attr = {
-      shortened_url: 'http://www.thisdomain.com',
-      target_url: 'http://www.google.com'
+      target_url: 'http://www.thisdomain.com'
     }
   end
 
   describe 'validation' do
     describe 'success' do
-      it 'should succeed when the URLs are different' do
+      it 'should succeed when the arguments are valid' do
         Url.create!(@attr)
       end
     end
 
     describe 'failure' do
-
-      it 'should fail when the shortened URL is not prefixed by this domain name'
-
-      it 'should fail when shortened_url is invalid' do
-        @bad_attr = @attr.merge({
-          shortened_url: 'david'
-          })
-
-        Url.new(@bad_attr).should_not be_valid
-      end
-
       it 'should fail when target_url is invalid' do
         @bad_attr = @attr.merge({
           target_url: 'david'
@@ -49,7 +37,7 @@ describe Url do
   end
 
   describe 'save' do
-    it 'should enforce shortened_url uniqueness' do
+    it 'should enforce secret token uniqueness' do
       Url.create!(@attr)
       Url.new(@attr).should_not be_valid
     end

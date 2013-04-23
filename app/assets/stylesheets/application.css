@@ -11,3 +11,45 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  font-family: 'Patrick Hand SC', helvetica;
+  text-align: center;
+}
+
+header {
+  margin-top: 13%;
+  font-size: 6em;
+  color: #00FF00;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.container {
+}
+
+footer {
+  /*Leaving this out for now*/
+  display: none;
+}
+
+.error {
+  color: red;
+}
+
+/* Put in urs.css.scss */
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+#create-button {
+}
+
+#search-field {
+  /*position: absolute;*/
+  /*display: block;*/
+  /*text-align: center;*/
+  /*width: 20px;*/
+}
