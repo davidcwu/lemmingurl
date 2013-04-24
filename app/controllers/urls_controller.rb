@@ -8,6 +8,7 @@ class UrlsController < ApplicationController
   def create
     @url = Url.new(params[:url])
     if @url.save
+      redirect_target = @url
       redirect_to @url
     else
       flash[:error] = 'Please enter a valid URL'
