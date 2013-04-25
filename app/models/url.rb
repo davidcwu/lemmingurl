@@ -9,6 +9,8 @@
 #  secret_token :string(255)      not null
 #
 
+require 'base64'
+
 class Url < ActiveRecord::Base
   attr_accessible :target_url, :secret_token
 
@@ -26,6 +28,7 @@ class Url < ActiveRecord::Base
 
   private
     def create_secret_token
-      self.secret_token = "#{rand(1000)}"
+      random_token = rand(1000)
+      self.secret_token = Base64.urlsafe_encode64(random_token.to_s)
     end
 end
