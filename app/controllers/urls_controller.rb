@@ -8,17 +8,21 @@ class UrlsController < ApplicationController
   def create
     @url = Url.new(params[:url])
     if @url.save
-      redirect_target = @url
-      redirect_to @url
+      respond_to do |format|
+        format.html { redirect_to @url }
+        format.js
+      end
     else
-      flash[:error] = 'Please enter a valid URL'
-      redirect_to root_path
+      flash.now[:error] = 'Please enter a valid URL'
+      render 'new'
     end
   end
 
   def show
-    secret_token = params[:id]
-    @url = secret_url(:id => secret_token)
+    # TODO: Return a stub URL for all URLs not in the db?
+    @url = Url.find_by_secret_token(params[:id])
+    # secret_token = params[:id]
+    # @url = secret_url(:id => secret_token)
   end
 
   # Used for visiting a certain URL using a token.

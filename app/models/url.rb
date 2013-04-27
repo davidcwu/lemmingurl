@@ -26,6 +26,11 @@ class Url < ActiveRecord::Base
     secret_token
   end
 
+  # def to_s
+    # 'blah'
+    # secret_url(secret_token)
+  # end
+
   private
     def create_secret_token
       random_token = rand(1000)

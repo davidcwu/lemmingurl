@@ -5,14 +5,13 @@
   </div>
 <% end %>
 
-<div class="form">
-  <%= form_for(@url) do |f| %>
-    <div id="search-field">
-      <%= f.text_field :target_url %>
-    </div>
-
-    <button type="submit">
-      <%= f.submit "Create" %>
-    </button>
-  <% end %>
+<div id="url">
 </div>
+
+<%= form_for(@url, remote: true) do |f| %>
+  <%= f.text_field :target_url %>
+
+  <button type="submit">
+    <%= f.submit "Create" %>
+  </button>
+<% end %>
