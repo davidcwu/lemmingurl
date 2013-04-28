@@ -26,14 +26,13 @@ class Url < ActiveRecord::Base
     secret_token
   end
 
-  # def to_s
-    # 'blah'
-    # secret_url(secret_token)
-  # end
-
   private
+    # TODO: If there is a conflict, recreate the token
     def create_secret_token
-      random_token = rand(1000)
+      time = Time.now
+      salt = rand(2048)
+      random_string = "#{target_url}#{time}#{salt}"
+      random_token = Digest::SHA256.hexdigest(random_string)
       self.secret_token = Base64.urlsafe_encode64(random_token.to_s)
     end
 end

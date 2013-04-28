@@ -45,6 +45,10 @@ button {
   cursor: pointer;
 }
 
+.secret_url {
+  display: none;
+}
+
 #create-button {
 }
 
