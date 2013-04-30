@@ -1,3 +1,8 @@
 $('form').remove();
-$('.container').addClass('secret_url')
-$('.secret_url').append('<%= j render(@url) %>').fadeIn('fast');
+
+var container = $('.container');
+container.addClass('fade_in');
+container.append('<%= j render(@url) %>');
+container.append('<%= j render("show_buttons") %>');
+
+$('.fade_in').fadeIn('fast');

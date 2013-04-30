@@ -40,6 +40,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     diff-lcs (1.2.3)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -120,6 +121,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (>= 2.5.0)
   coffee-rails (~> 3.2.1)
+  dynamic_form
   jquery-rails
   rails (= 3.2.13)
   rspec-rails (~> 2.0)

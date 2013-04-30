@@ -17,8 +17,7 @@ class Url < ActiveRecord::Base
   validates :secret_token, :presence => true,
                            :uniqueness => true
 
-  validates :target_url, :presence => true,
-                         :url => true
+  validates :target_url, :url => true
 
   before_validation :create_secret_token
 

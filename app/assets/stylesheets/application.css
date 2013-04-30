@@ -23,6 +23,7 @@ header {
   font-size: 6em;
   color: #00FF00;
   text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+  /*text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;*/
 }
 
 .container {
@@ -33,7 +34,10 @@ footer {
   display: none;
 }
 
-.error {
+.error ul li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
   color: red;
 }
 
@@ -45,7 +49,14 @@ button {
   cursor: pointer;
 }
 
-.secret_url {
+a {
+  padding: 0px 2px;
+  border: 1px solid black;
+  text-decoration: none;
+  color: green;
+}
+
+.fade_in {
   display: none;
 }
 

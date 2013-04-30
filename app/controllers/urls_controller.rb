@@ -13,6 +13,8 @@ class UrlsController < ApplicationController
         format.js
       end
     else
+      logger.info "Invalid URL entered."
+      logger.info "Errors: #{@url.errors.messages}"
       flash.now[:error] = 'Please enter a valid URL'
       render 'new'
     end
@@ -21,8 +23,6 @@ class UrlsController < ApplicationController
   def show
     # TODO: Return a stub URL for all URLs not in the db?
     @url = Url.find_by_secret_token(params[:id])
-    # secret_token = params[:id]
-    # @url = secret_url(:id => secret_token)
   end
 
   # Used for visiting a certain URL using a token.

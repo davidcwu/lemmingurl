@@ -1,14 +1,1 @@
-<!-- TODO: pull this into a partial -->
-<% if flash[:error] %>
-  <div class="error">
-    <%= flash[:error] %>
-  </div>
-<% end %>
-
-<%= form_for(@url, remote: true) do |f| %>
-  <%= f.text_field :target_url %>
-
-  <button type="submit">
-    <%= f.submit "Create" %>
-  </button>
-<% end %>
+<%= render 'new_url' %>
