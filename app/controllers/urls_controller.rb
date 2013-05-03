@@ -3,6 +3,11 @@ class UrlsController < ApplicationController
   def new
     @url = Url.new
     @title = "LemmingUrl"
+    respond_to do |format|
+      logger.info "Responding to #{format}"
+      format.html
+      format.js
+    end
   end
 
   def create

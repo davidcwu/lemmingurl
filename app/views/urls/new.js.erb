@@ -1,3 +1,6 @@
 var container = $('.container');
+
+$('.fade_in').hide();
 container.empty();
 container.append('<%= j render("new_url") %>');
+$('.fade_in').fadeIn('fast');
