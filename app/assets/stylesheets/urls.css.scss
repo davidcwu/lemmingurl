@@ -1,3 +1,67 @@
 // Place all the styles related to the Urls controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.error ul {
+  margin: 0;
+  padding: 0;
+}
+
+
+.error ul li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  color: red;
+}
+
+input {
+  margin: 0;
+  font-family: helvetica;
+  border: 1px solid grey;
+  /* css 3 */
+  border-radius:5px;
+  /* mozilla */
+  -moz-border-radius:5px;
+  /* webkit */
+  -webkit-border-radius:5px;
+}
+
+input:focus {
+  // border-color: green;
+}
+
+input[type="text"] {
+  padding-left: 5px;
+  font-size: 1em;
+  height: 25px;
+  width: 300px;
+  outline-color: #53CD4A;
+}
+
+input[type="submit"] {
+  // margin-left: -5px;
+  font-size: 0.8em;
+  width: 60px;
+  height: 25px;
+  padding: 3px;
+  background-color: #D6E2D6;
+  color: #08490C;
+}
+
+// a {
+//   padding: 0px 2px;
+//   border: 1px solid black;
+//   text-decoration: none;
+//   color: green;
+// }
+
+.fade_in {
+  display: none;
+}
+
+.secret_url {
+  /*border: 1px solid black;*/
+  background-color: white;
+  width: auto;
+}
