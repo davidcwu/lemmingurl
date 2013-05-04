@@ -13,13 +13,12 @@
  */
 
 body {
-  font-family: helvetica;
+  font-family: 'Patrick Hand SC', helvetica;
   background-color: #F1F1F1;
   text-align: center;
 }
 
 header {
-  font-family: 'Patrick Hand SC', helvetica;
   margin: 13% 0 0 0;
   font-size: 6em;
   color: #00FF00;
