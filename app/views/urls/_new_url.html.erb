@@ -1,8 +1,7 @@
 <%= form_for(@url, remote: true) do |f| %>
   <%= render '/shared/error_messages', object: @url %>
+  <!-- <%= error_messages_for(@url) %> -->
   <%= f.text_field :target_url, placeholder: "Enter an URL" %>
 
-  <!-- <button type="submit"> -->
   <%= f.submit "Create" %>
-  <!-- </button> -->
 <% end %>

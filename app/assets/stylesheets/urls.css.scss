@@ -7,7 +7,6 @@
   padding: 0;
 }
 
-
 .error ul li {
   margin: 0;
   padding: 0;
@@ -15,9 +14,14 @@
   color: red;
 }
 
+/* Rails doesn't like my stylin' */
+.field_with_errors {
+  display: inline;
+}
+
 input {
   font-family: helvetica;
-  margin: 0;
+  margin: 5px 0;
   font-family: helvetica;
   border: 1px solid grey;
   /* css 3 */
