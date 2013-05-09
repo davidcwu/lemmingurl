@@ -12,7 +12,7 @@
 require 'base64'
 
 class Url < ActiveRecord::Base
-  attr_accessible :target_url, :secret_token
+  attr_accessible :target_url
 
   validates :secret_token, :presence => true,
                            :uniqueness => true
@@ -32,6 +32,8 @@ class Url < ActiveRecord::Base
       salt = rand(2048)
       random_string = "#{target_url}#{time}#{salt}"
       random_token = Digest::SHA256.hexdigest(random_string)
-      self.secret_token = Base64.urlsafe_encode64(random_token.to_s)
+      secret_token = Base64.urlsafe_encode64(random_token.to_s)
+
+      self.secret_token = secret_token
     end
 end

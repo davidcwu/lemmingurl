@@ -37,9 +37,18 @@ describe Url do
   end
 
   describe 'save' do
+
+    it 'should populate the secret token field' do
+      Url.create!(@attr).secret_token.should_not be_nil
+    end
+
     it 'should enforce secret token uniqueness' do
-      Url.create!(@attr)
-      Url.new(@attr).should_not be_valid
+      first_url  = Url.create!(@attr)
+      second_url = Url.new(@attr)
+
+      second_url.stub(:create_secret_token) { first_url.secret_token }
+
+      second_url.should_not be_valid
     end
   end
 end
