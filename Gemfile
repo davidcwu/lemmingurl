@@ -5,12 +5,17 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'dynamic_form'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem 'annotate', ">=2.5.0"
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'thin'
+  gem 'pg'
 end
 
 
