@@ -14,7 +14,7 @@ require 'spec_helper'
 describe Url do
   before(:each) do
     @attr = {
-      target_url: 'http://www.thisdomain.com'
+      url: 'http://www.thisdomain.com'
     }
   end
 
@@ -28,7 +28,7 @@ describe Url do
     describe 'failure' do
       it 'should fail when target_url is invalid' do
         @bad_attr = @attr.merge({
-          target_url: 'david'
+            url: 'david'
           })
 
         Url.new(@bad_attr).should_not be_valid

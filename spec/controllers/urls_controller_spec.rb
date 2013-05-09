@@ -15,14 +15,14 @@ describe UrlsController do
 
     describe "failure" do
       it "should render the 'new' template" do
-        response = post :create, :url => { target_url: '' }
+        response = post :create, :url => { url: '' }
         expect(response).to render_template('new')
       end
     end
 
     describe "success" do
       let(:attr) do
-        { target_url: 'http://www.davidwu.com' }
+        { url: 'http://www.davidwu.com' }
       end
 
       it 'should create a new Url entry' do
