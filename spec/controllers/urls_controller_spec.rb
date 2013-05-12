@@ -11,6 +11,25 @@ describe UrlsController do
     end
   end
 
+  describe "GET 'show'" do
+
+    describe 'success' do
+      let(:url) { Url.create!( url: 'https://github.com/dcwu') }
+
+      it 'should redirect to the url' do
+        get :visit, :id => url.secret_token
+        response.should redirect_to(url.url)
+      end
+    end
+
+    describe 'failure' do
+      it 'should redirect to the new url site' do
+        get :visit, :id => 'invalid_secret_token'
+        response.should redirect_to(root_url)
+      end
+    end
+  end
+
   describe "POST 'create'" do
 
     describe "failure" do

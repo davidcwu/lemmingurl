@@ -34,9 +34,9 @@ class UrlsController < ApplicationController
   def visit
     @url = Url.find_by_secret_token(params[:id])
     if @url
-      target_url = @url.target_url
+      url = @url.url
       @url.destroy
-      redirect_to target_url
+      redirect_to url
     else
       flash[:error] = 'URL does not exist'
       redirect_to root_path
