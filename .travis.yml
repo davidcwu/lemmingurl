@@ -10,6 +10,8 @@ env:
 before_script:
   - psql -c 'create database test' -U postgres
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate rspec spec
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
