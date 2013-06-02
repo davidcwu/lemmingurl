@@ -4,5 +4,12 @@ rvm:
   - "2.0.0"
   - jruby-19mode # JRuby in 1.9 mode
   - rbx-19mode
+env:
+  - DB=sqlite
+  - DB=postgresql
+before_script:
+  - psql -c 'create database test' -U postgres
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:migrate rspec spec
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
