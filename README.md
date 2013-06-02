@@ -2,7 +2,6 @@ LemmingURL [![Build Status](https://travis-ci.org/dcwu/lemmingurl.png)](https://
 =====
 
 LemmingURL is a URL mapper that creates self-destructive URLs.
------
 
 http://lemming-url.herokuapp.com/
 
